@@ -3,10 +3,10 @@
     color: black;
     padding: 10px;
 }
-.group_overview h1 {
+.group_overview > h1 {
     margin-top: 0%;
 }
-.group_overview hr {
+.group_overview > hr {
     margin-top: 0px;
     margin-bottom: 0px;
     color: black;
@@ -15,10 +15,16 @@
     padding: 0%;
     border: 1px solid white;
     border-radius: 5px;
+    background-color: beige;
+    color: black;
 }
 .group_list li {
     list-style: none;
 }
 .group_list a {
     text-decoration: none;
+}
+.group_list .no_groups {
+    padding: 10px;
+    font-size: 1.5em;
 }
