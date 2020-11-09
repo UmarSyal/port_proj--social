@@ -1,0 +1,28 @@
+body {
+    background-color: black;
+    color: white;
+    font-weight: normal;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+}
+
+.navbar-inverse {
+    background-color : #343A40;
+}
+
+.container {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        border-radius: 0px;
+    }
+}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>@{{ posts.0.author }}</h2>
+    <p>Post History</p>
+    
+    {% for post in posts %}
+        <div class="row">
+            <div class="col-md-2">
+                <h3><a href="{% url 'posts:posts_by_user' username=post.author %}">@{{ post.author }}</a></h3>
+            </div>
+
+            <div class="col-md-10">
+                <h4>{{ post.author }}</h4>
+                <h3>{{ post.message }}</h3>
+                <p>
+                    <a href="{% url 'posts:post_detail' username=post.author pk=post.id %}">{{ post.created_on }}</a>
+                    in
+                    <a href="{% url 'groups:group_detail' slug=post.group.slug %}">{{ post.group.name }}</a>
+                </p>
+            </div>
+        </div>
+    {% endfor %}        
+{% endblock content %}

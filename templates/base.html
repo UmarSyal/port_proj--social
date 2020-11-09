@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Star Social</title>
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.jpg' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'social_site_css/master.css' %}">
+    {% block head %}
+    {% endblock head %}
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-staic-top">
+        <div class="container">
+            <ul class="nav navbar-nav navbar-header">
+                <li><a class="navbar-brand" href="{% url 'index' %}">Star Social</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                {% if not user.is_authenticated %}
+                    <li><a class="navbar-link" href="{% url 'posts:post_list' %}">Posts</a></li>
+                    <li><a class="navbar-link" href="{% url 'groups:group_list' %}">Groups</a></li>
+                    <li><a class="navbar-link" href="{% url 'accounts:login' %}">Log in</a></li>
+                    <li><a class="navbar-link" href="{% url 'accounts:signup' %}">Sign up</a></li>
+                {% else %}
+                    <li><a class="navbar-link" href="{% url 'posts:post_list' %}">Posts</a></li>
+                    <li><a class="navbar-link" href="{% url 'posts:post_form' %}">New Post</a></li>
+                    <li><a class="navbar-link" href="{% url 'groups:group_list' %}">Groups</a></li>
+                    <li><a class="navbar-link" href="{% url 'groups:group_form' %}">Create Group</a></li>
+                    <li><a class="navbar-link" href="{% url 'accounts:logout' %}">Log out</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container content">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>
