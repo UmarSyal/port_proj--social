@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
+{% endblock head %}
 
 {% block content %}
     <h1>Sign Up</h1>
