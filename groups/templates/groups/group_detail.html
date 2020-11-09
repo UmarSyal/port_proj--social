@@ -10,7 +10,7 @@
         <a class="btn btn-warning btn-lg" href="{% url 'groups:leave_group' slug=group.slug %}">Leave</a>
     {% endif %}
 
-    {% if not group.posts %}
+    {% if not group.posts.all %}
         <h2>No posts in this group yet!</h2>
     {% else %}
         {% for post in group.posts.all %}
